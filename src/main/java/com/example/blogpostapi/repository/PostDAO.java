@@ -1,6 +1,6 @@
 package com.example.blogpostapi.repository;
 
-import com.example.blogpostapi.model.Post;
+import com.example.blogpostapi.model.post.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

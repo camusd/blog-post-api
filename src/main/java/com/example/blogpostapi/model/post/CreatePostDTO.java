@@ -1,26 +1,19 @@
-package com.example.blogpostapi.model;
+package com.example.blogpostapi.model.post;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+public class CreatePostDTO {
 
-@Entity
-public class Post {
-
-    @Id
-    @GeneratedValue
-    private long id;
+    private long postId;
 
     private String title;
 
     private String body;
 
-    public long getId() {
-        return id;
+    public long getPostId() {
+        return postId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPostId(long postId) {
+        this.postId = postId;
     }
 
     public String getTitle() {
