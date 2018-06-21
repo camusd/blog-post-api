@@ -1,19 +1,11 @@
-package com.example.blogpostapi.model.post;
+package com.example.blogpostapi.dto;
 
 public class CreatePostDTO {
 
-    private long postId;
-
     private String title;
-
     private String body;
 
-    public long getPostId() {
-        return postId;
-    }
-
-    public void setPostId(long postId) {
-        this.postId = postId;
+    public CreatePostDTO() {
     }
 
     public String getTitle() {

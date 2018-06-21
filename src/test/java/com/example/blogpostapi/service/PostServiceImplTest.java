@@ -1,15 +1,17 @@
 package com.example.blogpostapi.service;
 
-import com.example.blogpostapi.model.post.Post;
-import com.example.blogpostapi.model.post.CreatePostDTO;
+import com.example.blogpostapi.BlogPostApiException;
+import com.example.blogpostapi.assembly.PostAssembler;
+import com.example.blogpostapi.model.Post;
+import com.example.blogpostapi.dto.CreatePostDTO;
 import com.example.blogpostapi.repository.PostDAO;
-import com.example.blogpostapi.service.Post.PostServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import javax.validation.Validator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,14 +29,26 @@ public class PostServiceImplTest {
     @Mock
     private PostDAO postDAO;
 
+    @Mock
+    private PostAssembler postAssembler;
+
+    @Mock
+    private Validator validator;
+
     @InjectMocks
     private PostServiceImpl subject;
 
     @Test
     public void readPosts_TwoEntitiesExist_ReturnsTwoEntities() {
         List<Post> expectedPosts = new ArrayList<>();
-        Post post1 = new Post("apple", "banana");
-        Post post2 = new Post("peach", "pear");
+        Post post1 = Post.newBuilder()
+                .withTitle("apple")
+                .withBody("banana")
+                .build();
+        Post post2 = Post.newBuilder()
+                .withTitle("peach")
+                .withBody("pear")
+                .build();
         expectedPosts.add(post1);
         expectedPosts.add(post2);
         when(postDAO.findAll()).thenReturn(expectedPosts);
@@ -52,20 +66,18 @@ public class PostServiceImplTest {
     }
 
     @Test
-    public void createPost_HappyPath_savesPost() {
+    public void createPost_HappyPath_SavesPost() {
         CreatePostDTO request = new CreatePostDTO();
         request.setTitle("apple");
         request.setBody("banana");
         when(postDAO.save(any(Post.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(postAssembler.toDomain(any(CreatePostDTO.class))).thenReturn(Post.newBuilder().build());
+        when(validator.validate(any(Post.class))).thenReturn(Collections.emptySet());
         Post result = subject.createPost(request);
         verify(postDAO, times(1)).save(result);
-        assertThat("The title of the result does not match the input",
-                result.getTitle(), is(request.getTitle()));
-        assertThat("The body of the result does not match the input",
-                result.getBody(), is(request.getBody()));
     }
 
-    @Test(expected = BlogPostAPIServiceException.class)
+    @Test(expected = BlogPostApiException.class)
     public void createPost_InputIsNull_ThrowsException() {
         subject.createPost(null);
     }

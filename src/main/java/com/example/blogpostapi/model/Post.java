@@ -1,4 +1,4 @@
-package com.example.blogpostapi.model.post;
+package com.example.blogpostapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +18,9 @@ public class Post {
 
     @NotNull
     private String body;
+
+    public Post() {
+    }
 
     public Post(String title, String body) {
         this.title = title;
