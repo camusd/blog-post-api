@@ -1,11 +1,10 @@
 package com.example.blogpostapi.controller;
 
 import com.example.blogpostapi.BlogPostApiException;
-import org.springframework.http.HttpStatus;
+import com.example.blogpostapi.BlogPostApiException.ErrorCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
@@ -14,27 +13,23 @@ import java.time.LocalDateTime;
 public class BlogPostApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(BlogPostApiException.class)
-    public final ResponseEntity<ApiError> handleBlogPostApiException(BlogPostApiException e, WebRequest request) {
-        return buildResponseEntity(ApiError.newBuilder(e).build());
-    }
-
-    private ResponseEntity<ApiError> buildResponseEntity(ApiError apiError) {
-        return new ResponseEntity<>(apiError, apiError.getStatusCode());
+    public final ResponseEntity<ApiError> handleBlogPostApiException(BlogPostApiException e) {
+        return new ResponseEntity<>(ApiError.newBuilder(e).build(), e.getStatusCode());
     }
 
     private static final class ApiError {
-        private final HttpStatus statusCode;
+        private final ErrorCode errorCode;
         private final LocalDateTime timestamp;
         private final String message;
 
         private ApiError(ApiErrorBuilder builder) {
-            this.statusCode = builder.statusCode;
+            this.errorCode = builder.errorCode;
             this.timestamp = builder.timestamp;
             this.message = builder.message;
         }
 
-        public HttpStatus getStatusCode() {
-            return statusCode;
+        public ErrorCode getErrorCode() {
+            return errorCode;
         }
 
         public LocalDateTime getTimestamp() {
@@ -50,12 +45,12 @@ public class BlogPostApiExceptionHandler extends ResponseEntityExceptionHandler 
         }
 
         private static final class ApiErrorBuilder {
-            private HttpStatus statusCode;
+            private ErrorCode errorCode;
             private LocalDateTime timestamp;
             private String message;
 
             private ApiErrorBuilder(BlogPostApiException e) {
-                this.statusCode = e.getStatusCode();
+                this.errorCode = e.getErrorCode();
                 this.timestamp = LocalDateTime.now();
                 this.message = e.getMessage();
             }

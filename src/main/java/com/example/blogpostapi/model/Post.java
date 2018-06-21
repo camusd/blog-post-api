@@ -1,22 +1,24 @@
 package com.example.blogpostapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
+@Table(name = "posts")
 public class Post {
 
     @Id
+    @Column(columnDefinition = "integer")
     @GeneratedValue
-    private long postId;
+    private Integer postId;
 
     @NotNull
+    @Column(columnDefinition = "string")
     private String title;
 
     @NotNull
+    @Column(columnDefinition = "string")
     private String body;
 
     public Post() {
@@ -27,11 +29,11 @@ public class Post {
         this.body = body;
     }
 
-    public long getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(long postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 

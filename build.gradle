@@ -23,11 +23,12 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.23.1'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
 	runtime('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

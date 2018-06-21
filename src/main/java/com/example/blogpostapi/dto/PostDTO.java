@@ -2,24 +2,24 @@ package com.example.blogpostapi.dto;
 
 public class PostDTO {
 
-    private long postId;
+    private Integer postId;
     private String title;
     private String body;
 
     public PostDTO() {
     }
 
-    public PostDTO(long postId, String title, String body) {
+    public PostDTO(Integer postId, String title, String body) {
         this.postId = postId;
         this.title = title;
         this.body = body;
     }
 
-    public long getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(long postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
@@ -45,11 +45,11 @@ public class PostDTO {
 
     public static final class PostDTOBuilder {
 
-        private long postId;
+        private Integer postId;
         private String title;
         private String body;
 
-        public PostDTOBuilder withPostId(long postId) {
+        public PostDTOBuilder withPostId(Integer postId) {
             this.postId = postId;
             return this;
         }
