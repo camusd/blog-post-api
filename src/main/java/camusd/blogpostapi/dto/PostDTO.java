@@ -1,4 +1,4 @@
-package com.example.blogpostapi.dto;
+package camusd.blogpostapi.dto;
 
 public class PostDTO {
 

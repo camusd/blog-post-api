@@ -1,10 +1,10 @@
-package com.example.blogpostapi.service;
+package camusd.blogpostapi.service;
 
-import com.example.blogpostapi.BlogPostApiException;
-import com.example.blogpostapi.assembly.PostAssembler;
-import com.example.blogpostapi.model.Post;
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.repository.PostDAO;
+import camusd.blogpostapi.BlogPostApiException;
+import camusd.blogpostapi.assembly.PostAssembler;
+import camusd.blogpostapi.model.Post;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.repository.PostDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

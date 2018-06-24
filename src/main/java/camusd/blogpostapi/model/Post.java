@@ -1,4 +1,4 @@
-package com.example.blogpostapi.model;
+package camusd.blogpostapi.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,16 +9,13 @@ import java.util.Objects;
 public class Post {
 
     @Id
-    @Column(columnDefinition = "integer")
     @GeneratedValue
     private Integer postId;
 
     @NotNull
-    @Column(columnDefinition = "string")
     private String title;
 
     @NotNull
-    @Column(columnDefinition = "string")
     private String body;
 
     public Post() {

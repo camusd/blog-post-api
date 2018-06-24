@@ -1,4 +1,4 @@
-package com.example.blogpostapi;
+package camusd.blogpostapi;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.example.blogpostapi.repository")
+@EnableJpaRepositories(basePackages = "camusd.blogpostapi.repository")
 @EnableTransactionManagement
 public class H2TestProfileJPAConfig {
 

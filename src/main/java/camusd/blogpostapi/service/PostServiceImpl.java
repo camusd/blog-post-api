@@ -1,10 +1,10 @@
-package com.example.blogpostapi.service;
+package camusd.blogpostapi.service;
 
-import com.example.blogpostapi.assembly.PostAssembler;
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.model.Post;
-import com.example.blogpostapi.repository.PostDAO;
-import com.example.blogpostapi.BlogPostApiException;
+import camusd.blogpostapi.BlogPostApiException;
+import camusd.blogpostapi.assembly.PostAssembler;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.model.Post;
+import camusd.blogpostapi.repository.PostDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

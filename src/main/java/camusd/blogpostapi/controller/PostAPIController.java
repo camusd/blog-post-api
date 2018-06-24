@@ -1,10 +1,10 @@
-package com.example.blogpostapi.controller;
+package camusd.blogpostapi.controller;
 
-import com.example.blogpostapi.assembly.PostAssembler;
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.model.Post;
-import com.example.blogpostapi.dto.PostDTO;
-import com.example.blogpostapi.service.PostService;
+import camusd.blogpostapi.assembly.PostAssembler;
+import camusd.blogpostapi.service.PostService;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.model.Post;
+import camusd.blogpostapi.dto.PostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

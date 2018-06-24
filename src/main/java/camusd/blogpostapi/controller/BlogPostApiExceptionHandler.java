@@ -1,7 +1,6 @@
-package com.example.blogpostapi.controller;
+package camusd.blogpostapi.controller;
 
-import com.example.blogpostapi.BlogPostApiException;
-import com.example.blogpostapi.BlogPostApiException.ErrorCode;
+import camusd.blogpostapi.BlogPostApiException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,7 +17,7 @@ public class BlogPostApiExceptionHandler extends ResponseEntityExceptionHandler 
     }
 
     private static final class ApiError {
-        private final ErrorCode errorCode;
+        private final BlogPostApiException.ErrorCode errorCode;
         private final LocalDateTime timestamp;
         private final String message;
 
@@ -28,7 +27,7 @@ public class BlogPostApiExceptionHandler extends ResponseEntityExceptionHandler 
             this.message = builder.message;
         }
 
-        public ErrorCode getErrorCode() {
+        public BlogPostApiException.ErrorCode getErrorCode() {
             return errorCode;
         }
 
@@ -45,7 +44,7 @@ public class BlogPostApiExceptionHandler extends ResponseEntityExceptionHandler 
         }
 
         private static final class ApiErrorBuilder {
-            private ErrorCode errorCode;
+            private BlogPostApiException.ErrorCode errorCode;
             private LocalDateTime timestamp;
             private String message;
 

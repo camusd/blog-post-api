@@ -1,11 +1,11 @@
-package com.example.blogpostapi.controller.post;
+package camusd.blogpostapi.controller;
 
-import com.example.blogpostapi.BlogPostApiApplication;
-import com.example.blogpostapi.H2TestProfileJPAConfig;
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.model.Post;
-import com.example.blogpostapi.dto.PostDTO;
-import com.example.blogpostapi.repository.PostDAO;
+import camusd.blogpostapi.BlogPostApiApplication;
+import camusd.blogpostapi.H2TestProfileJPAConfig;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.model.Post;
+import camusd.blogpostapi.dto.PostDTO;
+import camusd.blogpostapi.repository.PostDAO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
@@ -18,7 +18,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.util.NestedServletException;
 
 import java.util.List;
 
@@ -79,7 +78,7 @@ public class PostAPIControllerIntegrationTest {
     @Test
     public void createPost_NullInput_Returns400() throws Exception {
         CreatePostDTO createPostDTO = new CreatePostDTO();
-        String response = mvc.perform(post("/post").content(mapper.writeValueAsString(createPostDTO))
+        mvc.perform(post("/post").content(mapper.writeValueAsString(createPostDTO))
                 .contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().is4xxClientError())
                 .andReturn().getResponse().getContentAsString();
     }

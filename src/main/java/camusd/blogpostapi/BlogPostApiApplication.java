@@ -1,4 +1,4 @@
-package com.example.blogpostapi;
+package camusd.blogpostapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

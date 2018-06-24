@@ -1,7 +1,7 @@
-package com.example.blogpostapi.service;
+package camusd.blogpostapi.service;
 
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.model.Post;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.model.Post;
 
 import java.util.List;
 

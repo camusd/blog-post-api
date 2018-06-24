@@ -1,8 +1,8 @@
-package com.example.blogpostapi.assembly;
+package camusd.blogpostapi.assembly;
 
-import com.example.blogpostapi.dto.CreatePostDTO;
-import com.example.blogpostapi.model.Post;
-import com.example.blogpostapi.dto.PostDTO;
+import camusd.blogpostapi.dto.CreatePostDTO;
+import camusd.blogpostapi.model.Post;
+import camusd.blogpostapi.dto.PostDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package com.example.blogpostapi;
+package camusd.blogpostapi;
 
 import org.springframework.http.HttpStatus;
 
