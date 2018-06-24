@@ -1,5 +1,7 @@
 package camusd.blogpostapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PostDTO {
 
     private Integer postId;
@@ -15,6 +17,7 @@ public class PostDTO {
         this.body = body;
     }
 
+    @JsonProperty(value = "post_id")
     public Integer getPostId() {
         return postId;
     }
