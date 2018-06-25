@@ -56,5 +56,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
 	runtime('com.h2database:h2')
+    runtime("io.micrometer:micrometer-registry-prometheus")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
