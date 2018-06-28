@@ -129,7 +129,7 @@ datasources:
     datasources:
     - name: Prometheus
       type: prometheus
-      url: http://blogpostapi-prometheus-server.blogpostapi
+      url: http://blogpostapi-prometheus-server
       access: proxy
       isDefault: true
 

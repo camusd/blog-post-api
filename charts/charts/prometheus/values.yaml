@@ -1022,7 +1022,7 @@ serverFiles:
         scrape_interval: 5s
         static_configs:
           - targets:
-            - blogpostapi-blog-post-api.blogpostapi
+            - blogpostapi-blog-post-api
 
 networkPolicy:
   ## Enable creation of NetworkPolicy resources.
